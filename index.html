@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>BIG POS</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Favicons -->
+    <!-- <link href="https://bigpos.com/wp-content/uploads/2021/08/bigpos-logo-60x60-1.png" rel="icon"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!--   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet"><link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet"><link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"><link href="assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- =======================================================
+  * Template Name: NiceAdmin - v2.2.2
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+  <body>
+    <div class="tablet">
+      <!-- ======= Header ======= -->
+      <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between">
+          <!--  <a href="index.html" class="logo d-flex align-items-center"><img src="assets/img/logo.png" alt=""><span class="d-none d-lg-block">NiceAdmin</span></a> -->
+          <i onclick="MenubtnClicked()" style="font-weight: bolder;font-size: 25px" class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+        <!-- End Logo -->
+        <select id="categoryList" onload="console.log('Loaded!')" style="margin-left:10px;border-radius:11px; width:200px!important;" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option value="0">Select Category</option>
+          <option selected="" value="1">Main Dishes</option>
+          <option value="2">Side Dishes</option>
+          <option value="3">Hot Drinks</option>
+          <option value="4">Cold Drinks</option>
+          <option value="5">Desserts</option>
+        </select>
+        <!--  <button onclick="playVid()" type="button" class="btn-primary">Play Video</button> -->
+        <div id="myModal7" class="modal7">
+          <div style="text-align: center;">
+            <video id="myVideo" width="100%" height="100%" class="modal-content7">
+              <source src="assets/vdo/animation.MP4" type="video/mp4">
+              <!-- Your browser does not support HTML5 video. -->
+            </video>
+          </div>
+        </div>
+        <div style="right: 344px;left: 440px;position: fixed; top:-12px;" class="mt-4 search-bar">
+          <form class="search-form" method="POST" action="#">
+            <input type="text" autocomplete="off" name="query" placeholder="Search" title="Enter search keyword">
+            <button type="submit" title="Search"></button>
+          </form>
+        </div>
+        <!-- <i class="bi bi-search"></i> -->
+        <!-- End Search Bar -->
+        <a id="btnDeleteClicked">
+          <i style="left: 708px;top: 15px;position: absolute;color: black;font-weight: bolder;font-size: 22px" class="bi bi-trash"></i>
+          <!-- <i class="bi bi-bell"></i><span class="badge bg-primary badge-number">4</span> -->
+        </a>
+        <!-- End Notification Icon -->
+        <nav class="header-nav ms-auto">
+          <ul class="d-flex align-items-center">
+            <li class="nav-item d-block d-lg-none">
+              <a class="nav-link nav-icon search-bar-toggle " href="#">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!-- End Search Icon-->
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon">
+                <!--    <i onclick="show(this)" class="fa fa-thumbs-up"></i> -->
+                <img onclick="show()" id="toggleImage" width="35px" height="40px" src="assets/img/dineIn.png">
+                <!--  <span class="badge bg-primary badge-number">4</span> -->
+              </a>
+              <!-- End Notification Icon -->
+            </li>
+            <!-- End Notification Nav -->
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon">
+                <!--  <i class="bi bi-chat-left-text"></i><span class="badge bg-success badge-number">3</span> -->
+                <i class="bi bi-lightning-fill"></i>
+              </a>
+              <!-- End Messages Icon -->
+            </li>
+            <!-- End Messages Nav -->
+            <li class="nav-item dropdown pe-3">
+              <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                <!--   <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"><span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span> -->
+                <i class="bi bi-three-dots-vertical"></i>
+              </a>
+              <!-- End Profile Iamge Icon -->
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a id="btnSplitClicked" class="dropdown-item d-flex align-items-center" href="#">
+                    <i class="bi bi-shuffle"></i>
+                    <span>Split Order</span>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#">
+                    <i class="bi bi-record-circle-fill"></i>
+                    <span>Open table</span>
+                  </a>
+                </li>
+              </ul>
+              <!-- End Profile Dropdown Items -->
+            </li>
+            <!-- End Profile Nav -->
+          </ul>
+        </nav>
+        <!-- End Icons Navigation -->
+      </header>
+      <!-- End Header -->
+      <!-- ======= Sidebar ======= -->
+      <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" data-bs-toggle="collapse" id="sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-journal-check"></i>
+              <span>Register</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a id="TransactionClicked" href="#" class="nav-link ">
+              <i class="bi bi-arrow-left-right"></i>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a onclick="OpenCloseShift()" class="nav-link" href="#"> -->
+            <a class="nav-link" href="#">
+              <i class="bi bi-arrow-left-right"></i>
+              <span id="OpenCloseShiftID">Open Shift</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-arrow-left-right"></i>
+              <span>Shift Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Sync</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-box-seam"></i>
+              <span>Track Stock Inventory</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-person-check-fill"></i>
+              <span>Attendance System</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-printer-fill"></i>
+              <span>Printer</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-gear-wide-connected"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar-->
+      <main id="main" class="main">
+        <section class="section dashboard">
+          <div class="row">
+            <div id="myModal4" class="modal4">
+              <div class="modal-content4">
+                <div style="float: left;width:32%;padding: 12px;">
+                  <i style="font-size: 20px" class="CloseTransaction bi bi-caret-left-fill mb-4 mt-4"></i>
+                  <h4 style="text-align: center;" class="mt-4 ml-2">Transactions</h4>
+                  <img width="100%" src="assets/img/TransactionsList.png">
+                  <div style="padding: 0px" class="list-group">
+                    <h5 class="mt-2">Friday,Apr 02</h5>
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="">10:28 AM</h5>
+                        <medium>
+                          <h3>13:95</h3>
+                        </medium>
+                      </div>
+                      <p style="margin-top: -13px">INVOICE: 0000000021 </p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="">11:28 AM</h5>
+                        <p style="font-size:14px;font-weight: bold; background: red;padding: 0px 8px 0px 8px;border-radius: 20px;">Cancelled</p>
+                        <medium>
+                          <h3>15.50</h3>
+                        </medium>
+                      </div>
+                      <p style="margin-top: -13px">INVOICE: 0000000022 </p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="">12:22 AM</h5>
+                        <p style="font-size:14px;font-weight: bold; background: red;padding: 0px 8px 0px 8px;border-radius: 20px;">Refunded</p>
+                        <medium>
+                          <h3>10.95</h3>
+                        </medium>
+                      </div>
+                      <p style="margin-top: -13px">INVOICE: 0000000023 </p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="">13:28 AM</h5>
+                        <medium>
+                          <h3>23.35</h3>
+                        </medium>
+                      </div>
+                      <p style="margin-top: -13px">INVOICE: 0000000024 </p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="">14:15 AM</h5>
+                        <p style="font-size:14px;font-weight: bold; background: red;padding: 0px 8px 0px 8px;border-radius: 20px;">Refunded</p>
+                        <medium>
+                          <h3>43.55</h3>
+                        </medium>
+                      </div>
+                      <p style="margin-top: -13px">INVOICE: 0000000025 </p>
+                    </a>
+                  </div>
+                  
+                </div>
+                <div style="float: right;width:68%;padding: 12px;">
+                  <i id="reciept" style="cursor: pointer; float: right;background: #f2d857; font-size: 25px;padding: 0px 5px 0px 5px;border-radius: 9px;" class="bi bi-receipt mb-4 mt-4"></i>
+                  <h4 style="text-align: center;" class="mt-4 ml-2">Friday,Apr 01 10:28AM</h4>
+                  <hr>
+                  <h4 style="text-align: center;" class="mt-4 ml-2">13:95</h4>
+                  <div style="text-align: center; color: gray">
+                    <h5 style="margin-top: -13px">0000000021 - Processed by Janice-Lam </h5>
+                    <h5 style="margin-top: -13px">Processed from BIGPOS-T34 </h5>
+                  </div>
+                  <div style="background-color: #dddede;text-align: center;">
+                    <h4>Walk in Customer</h4>
+                  </div>
+                  <div style="height:300px;" class="card-body">
+                    <!-- List group With Checkboxes and radios -->
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <div style="display: flex;justify-content: space-between;align-items: center;">
+                          <!--  <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> -->
+                          <img width="10%" height="4%" src="assets/img/j2.png">
+                          <p>1</p>
+                          <p>Full Cream Milk (2L)</p>
+                          <p>13.95</p>
+                          <p>13.95</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- End List Checkboxes and radios -->
+                  </div>
+                  <div style="z-index: 8; bottom: 80px;right: 50px; display: block; position: absolute; max-height: 100px; width: 310px;">
+                    <table style="width: 100%; max-height: 5px" class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col-md-4">SUBTOTAL</th>
+                          <th style="text-align:right">13.95</th>
+                        </tr>
+                        <tr>
+                          <th scope="col-md-4">TAX</th>
+                          <th style="text-align: right" scope="col">0.00</th>
+                        </tr>
+                        <!--                    <tr><th scope="col-md-4">SERVICE CHARGE</th><th id="seriveChargeAmount" style="text-align:right" scope="col"></th></tr><tr><th scope="col-md-4">TAKE AWAY</th><th id="takeAwayAmount"style="text-align:right" scope="col"></th></tr> -->
+                        <tr>
+                          <th scope="col-md-4">GRAND TOTAL</th>
+                          <th style="text-align:right" scope="col">13.95</th>
+                        </tr>
+                        <!--                   <tr><td>Peter</td><td>Griffin</td></tr> -->
+                      </thead>
+                    </table>
+                  </div>
+                  <div style="bottom: 10">
+                    <button style="float:left;width: 45%" type="button" class="btn btn-outline-primary">Refund</button>
+                    <button style="float:right;width: 45%" type="button" class="btn btn-outline-primary">Cancel Transaction</button>
+                  </div>
+                  <div class="card-body">
+                    <div id="myModal5" class="modal5 modal-small">
+                      <div class="modal-content5">
+                        <img class="closeReceipt" width="40%" src="assets/img/TransactionReceipt.png">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="myModal3" class="modal3">
+              <div class="modal-content3">
+                <div style="display: flex;justify-content:space-between;padding: 15px;font-weight: bold; background: #F2D857">
+                  <h4 style="cursor: pointer;" class="close3">Close</h4>
+                  <h4>Walk-in Customer <span>
+                      <i style="padding:10px;color:white;font-size: 26px;font-weight: bolder;" class="bi bi-plus-circle"></i>
+                    </span>
+                  </h4>
+                  <h4 class="SplitPayScreen" style="cursor: pointer">Pay</h4>
+                </div>
+                <div style="height:320px;overflow-y: scroll;" class="card-body">
+                  <!-- List group With Checkboxes and radios -->
+                  <ul id="selectedTable" class="list-group">
+                    <!--  <li class="list-group-item"><div style="display: flex;justify-content: space-between;align-items: center;"><input class="form-check-input me-1" type="checkbox" value="" aria-label="..."><p>1</p><img width="10%" height="8%" src="assets/img/j1.png"><p>1</p><p>20.00</p><p>20.00</p></div></li> -->
+                  </ul>
+                  <!-- End List Checkboxes and radios -->
+                </div>
+                <div style="clear: both"></div>
+                <div id="SplitCalculationDIV" style="right: -593px; bottom: -41px; display: block; position: relative; max-height: 150px; width: 310px;">
+                  <table id="SplitCalculationTable" style="width: 100%; max-height: 10px" class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col-md-4">SUBTOTAL</th>
+                        <th style="text-align:right" id="SplitsubtotalAmount">0.00</th>
+                      </tr>
+                      <tr>
+                        <th scope="col-md-4">TAX</th>
+                        <th style="text-align: right" id="SplitgstAmount" scope="col">0.00</th>
+                      </tr>
+                      <!--                    <tr><th scope="col-md-4">SERVICE CHARGE</th><th id="seriveChargeAmount" style="text-align:right" scope="col"></th></tr><tr><th scope="col-md-4">TAKE AWAY</th><th id="takeAwayAmount"style="text-align:right" scope="col"></th></tr> -->
+                      <tr>
+                        <th scope="col-md-4">GRAND TOTAL</th>
+                        <th id="SplitgrandTotalAmount" style="text-align:right" scope="col">0.00</th>
+                      </tr>
+                      <!--                   <tr><td>Peter</td><td>Griffin</td></tr> -->
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="myModal2" style="background-color: white" class="modal2">
+              <div class="modal-content2">
+                <div style="float: left;height: 100%; border-right: 1px solid #676d79;padding: 12px;">
+                  <i style="font-size: 20px" class="close2 bi bi-caret-left-fill mb-4"></i>
+                  <!-- <div id="PasteDiv2" style="margin-top: 35px;width: 320px" class="parent card-body"></div> -->
+                  <table id="TransactionTablePayScreen" class="table" style="width:100%; height: 60%; overflow-y: scroll; display: block;">
+                    <thead>
+                      <tr>
+                        <th style="width: 150px" scope="col">Name</th>
+                        <th style="width: 110px" scope="col">QTY</th>
+                        <th style="text-align:right" scope="col">Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                  <!-- <div id="PasteDiv3" style="height: 200px;width: 320px; position: relative; margin-top: -10px;display: block;overflow-y:scroll;"></div><div id="PasteCalculationDiv" style="display:block; bottom: 75px;position: absolute;max-height:150px;width: 300px"></div> -->
+                  <div id="CalculationDIVPayScreen" style="display:block;bottom: 75px;position: absolute;max-height:150px;width: 310px">
+                    <table id="CalculationTablePayScreen" style="width: 100%; max-height: 10px" class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col-md-4">SUBTOTAL</th>
+                          <th style="text-align:right" id="subtotalAmountPayScreen">0.00</th>
+                        </tr>
+                        <!--   <tr><th scope="col-md-4"><a style="font-weight: BOLD;color: #F2D857">DISCOUNT</a></th><th id="discountAmountPayScreen" style="text-align:right" scope="col">0.00</th></tr> -->
+                        <tr>
+                          <th scope="col-md-4">TAX</th>
+                          <th style="text-align: right" id="gstAmountPayScreen" scope="col">0.00</th>
+                        </tr>
+                        <!--                    <tr><th scope="col-md-4">SERVICE CHARGE</th><th id="seriveChargeAmount" style="text-align:right" scope="col"></th></tr><tr><th scope="col-md-4">TAKE AWAY</th><th id="takeAwayAmount"style="text-align:right" scope="col"></th></tr> -->
+                        <tr>
+                          <th scope="col-md-4">GRAND TOTAL</th>
+                          <th id="grandTotalAmountPayScreen" style="text-align:right" scope="col">0.00</th>
+                        </tr>
+                        <!--                   <tr><td>Peter</td><td>Griffin</td></tr> -->
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+                <div id="PayRightSidePanel2" style="display: none; align-items: center;">
+                  <div style="width:600px; float:left;margin-top: 40px;margin-left: 40px;">
+                    <div style="align-items: center;text-align: center;">
+                      <img style="text-align: center;margin: auto;" width="40%" height="40%" src="assets/img/PaidIcon.png">
+                      <h1>Total Paid <span id="paidAmount">0.00</span>
+                      </h1>
+                      <img width="80%" height="40%" src="assets/img/contact.png">
+                    </div>
+                    <button onclick="newOrderBtnClicked()" style="width: 100%; background-color: #F2D857;font-weight: bolder;font-size: 20px;border: none;color: white;border-radius: 8px;height: 45px;">New Order</button>
+                  </div>
+                </div>
+                <div id="PayRightSidePanel1">
+                  <div style="width:600px; float:left;margin-top: 65px;margin-left: 40px;">
+                    <h1 id="TotalAmountToPay" style="text-align: center;">0.00</h1>
+                    <div style="width: 600px" class="parent">
+                      <i style="font-size: 35px;margin-right:10px" class="bi bi-wallet"></i>
+                      <input id="CashInput" width="100%" style="width: 100%;text-align: right;" class="mr-4"></input>
+                      <button onclick="exactBtnClicked()" style="margin-left:15px; width: 151px; background-color: #F2D857;font-weight: bolder;font-size: 20px;border: none;color: white;border-radius: 8px;height: 45px;">Exact</button>
+                    </div>
+                    <div class="parent">
+                      <button class="btn-outline">15</button>
+                      <button class="btn-outline">20</button>
+                      <button class="btn-outline">30</button>
+                    </div>
+                  </div>
+                  <br>
+                  <div style="margin-top: 49px;/* margin-left: 20px; */ width: 650px; float:left">
+                    <ul class="list-group">
+                      <li style="font-size: 22px;font-size: bolder" class="list-group-item">
+                        <i class="bi bi-credit-card-2-back"></i>
+                        </i> Credit Card
+                      </li>
+                      <li style="font-size: 22px;font-size: bolder" class="list-group-item">
+                        <i class="bi bi-credit-card-2-back"></i>
+                        </i> Debit Card
+                      </li>
+                      <li style="font-size: 22px;font-size: bolder" class="list-group-item">
+                        <i class="bi bi-credit-card-2-front-fill"></i>
+                        </i> Mobile E-Wallet
+                      </li>
+                      <li style="font-size: 22px;font-size: bolder" class="list-group-item">
+                        <i class="bi bi-wallet2"></i> Customer E-Wallet
+                      </li>
+                    </ul>
+                    <!-- End List group With Icons -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal rounded">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <!-- <p style="visibility: hidden;" class="close">&times;</p> -->
+              <span class="close" style=" color:black; font-weight:bolder; padding: 10px; background-color: #F2D857;text-align: center;">Full Bill Discount</span>
+              <div style=" padding: 0px; margin-top: -3px; flex-direction: row; align-content: center;text-align: center;">
+                <img style="max-width: 123px;height: 86px" src="assets/img/DiscountImg.png" alt="...">
+                <input required minlength="2" maxlength="2" id="discountInput" placeholder="0%" style="margin-top: 2px; font-size: 20px; font-weight: bolder;height: 86px; max-width: 150px;border:none;text-align: center; height: 80px;background-color: #EEEDEE" type="number">
+                <img style="max-width: 123px;height: 86px" src="assets/img/DiscountImgPer.png" alt="...">
+              </div>
+              <input style="height: 320px; margin-top: -6px; border:none;width: 100%; background: white; text-align: left;left:0px; " placeholder="Add note" width:100%></input>
+              <button onclick="SaveButtonClicked()" style="margin: auto; text-align: center; align-items: center; min-width: -204px;background-color: #F2D857;font-weight: bolder;font-size: 20px;width: 40%;border-radius: 22px;" class="btn btn-warning mb-4 mt-2">SAVE</button>
+            </div>
+          </div>
+          <div class="sidebartable">
+            <!--  <a href="javascript:void(0)" style="visibility: hidden;" id="closebtnVSBLTY" class="closebtn" onclick="closeNav()">×</a> -->
+            <div id="myModal8" class="modal8">
+          
+           <img width="100px" height="100px" src="assets/img/instruction.gif">
+          
+        </div>
+            <ul id="TableItem" style="position: relative;z-index:1; margin-top: 15px;margin-left: 12px;" class="nav sidebar-nav " id="sidebar-nav"></ul>
+            <!-- <button id="openbtnVSBLTY" class="openbuttn" onclick="openNav()"><i style="font-size: 20px" class="bi bi-caret-right-fill"></i></button>  -->
+          </div>
+          <!-- Left side columns -->
+          <div id="div1" style="height: auto; position: relative;z-index: 0; max-width: 650px;margin-left: 60px;" class="row">
+            <!--  <div id="test1" onclick="Item1Clicked()" style="max-width: 150px"><div class="card info-card revenue-card"><div class="card-body"><img id ="drink1ImgSourcePath" src="assets/img/j1.png" class="card-img-top" alt="..."><h5 id="drink1price" class="top-right">MYR 7</h5><h5 id="drink1name"class="img-title">Pomegranate Juice</h5></div></div></div> -->
+          </div>
+          <!-- End Left side columns -->
+          <!-- Right side columns -->
+          <div style="max-width: 350px;min-height:515px;top:10px; bottom: 0px; background:white;  position: fixed; float:right;right: 0;">
+            <!-- Recent Activity -->
+            <div id="CopyDiv2" class="p-3 parent" style="margin-top: 55px">
+              <span class="child">
+                <i style="font-size: 26px;font-weight: bolder;" class="text-black bi bi-person-circle"></i>
+              </span>
+              <h4 style="margin-top: -10px;" class="child card-title">Add Customer</h4>
+              <a class="child icon" href="#">
+                <i style="font-size: 26px;font-weight: bolder;" class="text-black bi bi-plus-circle"></i>
+              </a>
+            </div>
+            <div id="CopyDiv3" style="height: 200px; min-width: 350px; position: relative; margin-top: -10px;display: block;overflow-y:scroll;">
+              <table id="TransactionTable" class="table" style="width:100%; display: block;">
+                <thead>
+                  <tr id="TransactionTR" style="background: white">
+                    <th style="width: 150px" scope="col">Name</th>
+                    <th style="width: 110px" scope="col">QTY</th>
+                    <th style="text-align:right" scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div id="NoDataToShow" style="text-align:center; display: block;overflow-y:scroll;">
+              <h4>NO DATA AVAILABLE</h4>
+            </div>
+            <div id="CalculationDIV" style="display:block; visibility: hidden; bottom: 75px;position: absolute;max-height:150px;width: 310px">
+              <table id="CalculationTable" style="width: 100%; max-height: 10px" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col-md-4">SUBTOTAL</th>
+                    <th style="text-align:right" id="subtotalAmount">0.00</th>
+                  </tr>
+                  <tr>
+                    <th scope="col-md-4">
+                      <a id="myBtn" style="font-weight: BOLD;color: #F2D857">DISCOUNT</a>
+                    </th>
+                    <th id="discountAmount" style="text-align:right" scope="col">0.00</th>
+                  </tr>
+                  <tr>
+                    <th scope="col-md-4">TAX</th>
+                    <th style="text-align: right" id="gstAmount" scope="col">0.00</th>
+                  </tr>
+                  <!--                    <tr><th scope="col-md-4">SERVICE CHARGE</th><th id="seriveChargeAmount" style="text-align:right" scope="col"></th></tr><tr><th scope="col-md-4">TAKE AWAY</th><th id="takeAwayAmount"style="text-align:right" scope="col"></th></tr> -->
+                  <tr>
+                    <th scope="col-md-4">GRAND TOTAL</th>
+                    <th id="grandTotalAmount" style="text-align:right" scope="col">0.00</th>
+                  </tr>
+                  <!--                   <tr><td>Peter</td><td>Griffin</td></tr> -->
+                </thead>
+              </table>
+            </div>
+            <div style="  bottom: 5px; position: absolute;right: 15px;" class="card-body">
+              <button id="payButtonClicked" style="min-width: 160px;background-color: #F2D857;font-weight: bolder;font-size: 20px;" type="button" class="text-black btn btn-warning">Pay</button>
+              <button onclick="sendBtnClicked()" style="min-width: 160px;background-color:#F2D857;font-weight: bolder;font-size: 20px;" type="button" class="btn  btn-warning">Send</button>
+            </div>
+            <div id="myModal6" class="closeKitchenMSG modal6 modal-small">
+              <div style="text-align: center;" class="modal-content6">
+                <h4 style="margin-top:100px;">Order sent to kitchen!</h4>
+              </div>
+            </div>
+          </div>
+          <!-- End Recent Activity -->
+    </div>
+    <!-- End Right side columns -->
+    </div>
+    </section>
+    </main>
+    <!-- End #main -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    </div>
+  </body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script >
+var OpenShift = true;
+var SplitOderCLicked = false;
+var ItemSelectedToSend = false;
+var cart = []
+var selected = []
+window.addEventListener('load', function()
+{
+  TriggerChange();
+  document.getElementById('categoryList').addEventListener('change', function()
+  {
+    TriggerChange();
+  });
+  ItemSelectedToSend = false;
+  var tableData = document.getElementById("TransactionTable");
+  if (tableData.value == null)
+  {
+    // console.log("NO DATA");
+    document.getElementById("NoDataToShow").style.display = 'block';
+  }
+  else
+  {
+    // console.log("YES DATA");
+    document.getElementById("NoDataToShow").style.display = 'none';
+  }
+})
+
+function TriggerChange()
+{
+  var itemCategorySelected = document.getElementById('categoryList').value;
+  //itemCategorySelected = x.value;
+  // console.log(itemCategorySelected);
+  html = '';
+  for (var i = 0; i < item.length; i++)
+  {
+    if (item[i].itemCategory === itemCategorySelected)
+    {
+      html += "<div style='max-width:150px'>";
+      html += "<div style='z-index:0' class='card info-card revenue-card'>";
+      html += "<div style='z-index:0' class='card-body' >";
+      html += "<p class='top-right'><span>MYR </span>" + item[i].price + "</p>";
+      html += "<img style='z-index:1;cursor:pointer' src='" + item[i].imgSource + "' class='ItemsDiv card-img-top' data-item-id='" + item[i].id + "' data-price='" + item[i].price + "' data-name='" + item[i].name + "'>";
+      html += "<h5 class='img-title'>" + item[i].name + "</h5>";
+      html += "</div>";
+      html += "</div>";
+      html += "</div>"
+    }
+  }
+  document.getElementById("div1").innerHTML = html;
+  var elements = document.getElementsByClassName("ItemsDiv");
+  //console.log(elements);
+  var Item1Clicked = function(e)
+  {
+    if (OpenShift === true)
+    {
+      if (tableSelected === true)
+      {
+        ItemSelectedToSend = true;
+        document.getElementById("NoDataToShow").style.display = 'none';
+        document.getElementById("CalculationDIV").style.visibility = "visible";
+        var itemID = this.getAttribute("data-item-id");
+        cart.push(itemID);
+        sumVal = 0.00;
+        var disAmount = 0.00;
+        for (var k = 0; k < cart.length; k++)
+        {
+          // var CartID = (cart.at(selected[i]));
+          var CartItems = item.find(item => item.id === cart[k]);
+          //console.log(CartItems); 
+          sumVal += parseFloat(CartItems.price);
+          var gstperc = ((sumVal.toFixed(2) / 100) * 6);
+          SelectedTablehtml = '';
+          SelectedTablehtml += "<li class='list-group-item'>";
+          SelectedTablehtml += "<div style='display: flex;justify-content: space-between;align-items: center;'>";
+          SelectedTablehtml += " <input onclick='CheckBoxCliked(this)' data-array-index=" + (cart.length - 1) + " selected-item-price=" + CartItems.price + "  selected-item-id=" + CartItems.id + " class='SplitItemElementsDiv form-check-input me-1' type='checkbox' value='' aria-label='...'>";
+          SelectedTablehtml += "<img style='border-radius:16px' width='10%'' height='8%'' src=" + CartItems.imgSource + ">";
+          SelectedTablehtml += " <p max-width='20px'>1</p>";
+          SelectedTablehtml += "<p class='short-name'>" + CartItems.name + "</p>";
+          SelectedTablehtml += "<p>" + CartItems.price + "</p>";
+          SelectedTablehtml += "<p>" + CartItems.price + "</p>";
+          SelectedTablehtml += "</div>";
+          SelectedTablehtml += "</li>";
+        }
+        document.getElementById("selectedTable").innerHTML += SelectedTablehtml;
+        var table = document.getElementById("TransactionTable");
+        var row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = CartItems.name;
+        cell2.innerHTML = "1";
+        cell3.innerHTML = CartItems.price;
+        // for (var i = 1; i < table.rows.length; i++)
+        // {
+        //   sumVal = sumVal + parseFloat(table.rows[i].cells[2].innerHTML);
+        // }
+        document.getElementById("subtotalAmount").innerHTML = sumVal.toFixed(2);
+        document.getElementById("gstAmount").innerHTML = gstperc.toFixed(2);
+        document.getElementById("grandTotalAmount").innerHTML = (sumVal + gstperc + disAmount).toFixed(2);
+      }
+      else
+      {
+        //console.log("PLEASE MAKE IT false");
+        window.alert("Please Select a Table and Click New Order");
+        document.getElementById("myModal8").style.display="block";
+        //location.reload();
+      }
+    }
+    else
+    {
+      alert("Sorry! We are closed. Please open shift from the menu");
+    }
+  }
+  for (var i = 0; i < elements.length; i++)
+  {
+    elements[i].addEventListener('click', Item1Clicked, false);
+  }
+}
+tableSelected = false;
+var tableHtml = '';
+var tableNo = [
+
+  {
+    imgSource: "assets/img/Tables-01.png"
+  },
+  {
+    imgSource: "assets/img/Tables-02.png"
+  },
+  {
+    imgSource: "assets/img/Tables-03.png"
+  },
+  {
+    imgSource: "assets/img/Tables-04.png"
+  },
+  {
+    imgSource: "assets/img/Tables-05.png"
+  },
+
+]
+for (var j = 0; j < tableNo.length; j++)
+{
+  // console.log(tableNo[j]);
+  tableHtml += "<li class='nav-item'>";
+  tableHtml += "<a class='.nav-link-table dropdown' href='index.html' data-bs-toggle='dropdown'>";
+  tableHtml += "<img class='TabItem image-highlight' style='width: 50px;' src=" + tableNo[j].imgSource + ">";
+  tableHtml += "</a>";
+  tableHtml += "<ul class='dropdown-menu'>";
+  tableHtml += "<li><span id='CreateTableClicked' style='cursor: pointer' class='CreateTableClass dropdown-item'>New Order</span></li>";
+  tableHtml += "<li><a class='dropdown-item' href='#'>Merge Table</a></li>";
+  tableHtml += "</ul>";
+  tableHtml += "</li>";
+}
+document.getElementById("TableItem").innerHTML = tableHtml;
+// end of table item
+// Starting of food item
+var html = '';
+var item = [
+
+  {
+    id: "624e57127de89",
+    name: "Mandy Chicken",
+    price: "8.50",
+    itemCategory: "1",
+    imgSource: "assets/img/md1.png"
+  },
+  {
+    id: "624e594d0d855",
+    name: "Nasi Goreng Ayam",
+    price: "7.00",
+    itemCategory: "1",
+    imgSource: "assets/img/md2.png"
+  },
+  {
+    id: "624e5956905a5",
+    name: "Salmon Fillet",
+    price: "9.50",
+    itemCategory: "1",
+    imgSource: "assets/img/md3.png"
+  },
+  {
+    id: "624e595e98e4e",
+    name: "Mandy Lamb",
+    price: "9.50",
+    itemCategory: "1",
+    imgSource: "assets/img/md4.png"
+  },
+  {
+    id: "624e59666acb2",
+    name: "Nasi Goreng Ayam Kunit",
+    price: "6.00",
+    itemCategory: "1",
+    imgSource: "assets/img/md5.png"
+  },
+
+
+  {
+    id: "624e59741fcf9",
+    name: "Baked Beans",
+    price: "4.00",
+    itemCategory: "2",
+    imgSource: "assets/img/sd1.png"
+  },
+  {
+    id: "624e597df216e",
+    name: "Baked Potato",
+    price: "3.00",
+    itemCategory: "2",
+    imgSource: "assets/img/sd2.png"
+  },
+  {
+    id: "624e598602db3",
+    name: "Cauliflower Roast",
+    price: "5.00",
+    itemCategory: "2",
+    imgSource: "assets/img/sd3.png"
+  },
+  {
+    id: "624e598dea0a6",
+    name: "Mixed Salad",
+    price: "4.00",
+    itemCategory: "2",
+    imgSource: "assets/img/sd4.png"
+  },
+  {
+    id: "624e59966e293",
+    name: "Broccoli Mixed Veg",
+    price: "6.00",
+    itemCategory: "2",
+    imgSource: "assets/img/sd5.png"
+  },
+
+
+  {
+    id: "624e599ebb38e",
+    name: "Coffee Regular",
+    price: "5.00",
+    itemCategory: "3",
+    imgSource: "assets/img/hd1.png"
+  },
+  {
+    id: "624e59a732f78",
+    name: "Teh Tarik",
+    price: "3.50",
+    itemCategory: "3",
+    imgSource: "assets/img/hd2.png"
+  },
+  {
+    id: "624e59b236a4e",
+    name: "Cappuccino",
+    price: "6.00",
+    itemCategory: "3",
+    imgSource: "assets/img/hd3.png"
+  },
+  {
+    id: "624e59bb1d97a",
+    name: "Black Coffee",
+    price: "5.00",
+    itemCategory: "3",
+    imgSource: "assets/img/hd4.png"
+  },
+  {
+    id: "624e59c28e68f",
+    name: "Black Tea",
+    price: "4.00",
+    itemCategory: "3",
+    imgSource: "assets/img/hd5.png"
+  },
+
+
+  {
+    id: "624e59cb1a002",
+    name: "Pomegranate juice",
+    price: "7.00",
+    itemCategory: "4",
+    imgSource: "assets/img/j1.png"
+  },
+  {
+    id: "624e59d24b266",
+    name: "Carrot juice",
+    price: "6.00",
+    itemCategory: "4",
+    imgSource: "assets/img/j2.png"
+  },
+  {
+    id: "624e59d9da853",
+    name: "Orange juice",
+    price: "6.00",
+    itemCategory: "4",
+    imgSource: "assets/img/j3.png"
+  },
+  {
+    id: "624e59e14dc47",
+    name: "Lemon juice",
+    price: "5.00",
+    itemCategory: "4",
+    imgSource: "assets/img/j4.png"
+  },
+  {
+    id: "624e59e8a77f3",
+    name: "Watermelon juice",
+    price: "5.00",
+    itemCategory: "4",
+    imgSource: "assets/img/j5.png"
+  },
+
+
+  {
+    id: "624e59f0f00fe",
+    name: "Falooda",
+    price: "5.00",
+    itemCategory: "5",
+    imgSource: "assets/img/dsr1.png"
+  },
+  {
+    id: "624e59f8308e5",
+    name: "Pudding",
+    price: "6.00",
+    itemCategory: "5",
+    imgSource: "assets/img/dsr2.png"
+  },
+  {
+    id: "624e59ff1aefb",
+    name: "Milk Pudding",
+    price: "6.00",
+    itemCategory: "5",
+    imgSource: "assets/img/dsr3.png"
+  },
+  {
+    id: "624e5a074d7d6",
+    name: "Tiramisu",
+    price: "6.50",
+    itemCategory: "5",
+    imgSource: "assets/img/dsr4.png"
+  },
+  {
+    id: "624e5a0e7ac62",
+    name: "Black Forest",
+    price: "6.50",
+    itemCategory: "5",
+    imgSource: "assets/img/dsr5.png"
+  },
+
+
+]
+
+function SaveButtonClicked()
+{
+  var disAmount = parseFloat(document.getElementById("discountInput").value);
+  var SubTotal = parseFloat(document.getElementById("subtotalAmount").innerHTML);
+  var gst = parseFloat(document.getElementById("gstAmount").innerHTML);
+  var GrandTotalAfterDiscount = parseFloat(document.getElementById("grandTotalAmount").innerHTML);
+  // console.log(typeof GrantTotalAfterDiscount);
+  var totalDis = (SubTotal / 100) * disAmount;
+  var NewGrandTotal = SubTotal + gst - totalDis;
+  console.log(NewGrandTotal);
+  document.getElementById("discountAmount").innerHTML = totalDis.toFixed(2);
+  document.getElementById("grandTotalAmount").innerHTML = NewGrandTotal.toFixed(2);
+  modal.style.display = "none";
+}
+
+</script>
+
+
+<script>
+var SplitTotal = 0.00;
+var SplitGST = 0.00;
+var SplitGrandTotal = 0.00;
+
+function CheckBoxCliked(obj)
+{
+  //console.log(obj);
+  //svar SelecteditemID = obj.itemname;
+  selectedIndex = obj.getAttribute("data-array-index");
+  var SplitItemPrice = obj.getAttribute("selected-item-price");
+  if (obj.checked)
+  {
+    SplitTotal += parseFloat(SplitItemPrice);
+    SplitGST += parseFloat(SplitItemPrice) / 100 * 6;
+    SplitGrandTotal = SplitTotal + SplitGST;
+    // console.log(SplitGST);
+    document.getElementById("SplitsubtotalAmount").innerHTML = SplitTotal.toFixed(2);
+    document.getElementById("SplitgstAmount").innerHTML = SplitGST.toFixed(2);
+    document.getElementById("SplitgrandTotalAmount").innerHTML = SplitGrandTotal.toFixed(2);
+    selected.push(parseInt(selectedIndex));
+    console.log(selected);
+    //alert("Checked");
+  }
+  else
+  {
+    SplitTotal -= parseFloat(SplitItemPrice);
+    SplitGST -= parseFloat(SplitItemPrice) / 100 * 6;
+    SplitGrandTotal = SplitTotal + SplitGST;
+    document.getElementById("SplitsubtotalAmount").innerHTML = SplitTotal.toFixed(2);
+    document.getElementById("SplitgstAmount").innerHTML = SplitGST.toFixed(2);
+    document.getElementById("SplitgrandTotalAmount").innerHTML = SplitGrandTotal.toFixed(2);
+    selected.splice(selected.findIndex(item => item === selectedIndex), 1)
+    //alert("UNNNChecked");
+    //console.log(selected);
+  }
+}      
+</script>
+
+
+<script >
+var Tablelements = document.getElementsByClassName("CreateTableClass");
+var TableClicked = function(e)
+{
+  tableSelected = true;
+  document.getElementById("myModal8").style.display="none";
+  console.log(tableSelected);
+};
+for (var i = 0; i < Tablelements.length; i++)
+{
+  Tablelements[i].addEventListener('click', TableClicked, false);
+}
+
+</script>
+
+
+
+<!-- <script>
+var x = document.getElementById("closebtnVSBLTY");
+var y = document.getElementById("openbtnVSBLTY");
+
+function openNav()
+{
+  x.style.visibility = "visible";
+  y.style.visibility = "hidden";
+  document.getElementById("mySidebar").style.width = "0" ? '100%' : '80px';
+  document.getElementById("closebtn").style.visibility = "visible";
+}
+
+function closeNav()
+{
+  x.style.visibility = "hidden";
+  y.style.visibility = "visible";
+  document.getElementById("mySidebar").style.width = "80px";
+  document.getElementById("main").style.marginLeft = "0";
+}
+
+</script> -->
+
+
+<script>
+document.getElementById("btnDeleteClicked").addEventListener("click", btnDeleteClicked);
+
+function btnDeleteClicked()
+{
+  //console.log("askjdhk");
+  // var rowCount = TransactionTable.rows.length;
+  //       for (var i = rowCount - 1; i > 0; i--) {
+  //           TransactionTable.deleteRow(i);
+  //           //CalculationTable.deleteRow(1);
+  //           // $("#CalculationTable").empty(); 
+  //       }
+  location.reload();
+  OpenShift = true;
+}
+
+</script>
+
+
+<script>
+function show()
+{
+  let x = document.getElementById('toggleImage')
+  if (x.src.match('assets/img/dineIn.png'))
+  {
+    x.src = 'assets/img/takeAway.png';
+  }
+  else
+  {
+    x.src = 'assets/img/dineIn.png';
+  }
+}
+
+</script>
+
+<script>
+ function OpenCloseShift()
+{
+  let x = document.getElementById('OpenCloseShiftID')
+  console.log("CLICKED");
+  let y = document.getElementById('sidebar')
+  y.style.left = '-300px';
+  if (x.textContent === 'Close Shift')
+  {
+    x.textContent = 'Open Shift';
+    OpenShift = false;
+    alert("The shift is now closed!");
+    document.getElementById("categoryList").disabled = true;
+  }
+  else
+  {
+    x.textContent = 'Close Shift';
+    OpenShift = true;
+    // console.log(OpenShift);
+    alert("The shift is now open!");
+    document.getElementById("categoryList").disabled = false;
+  }
+}
+
+</script>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+var modal2 = document.getElementById("myModal2");
+var modal3 = document.getElementById("myModal3");
+var modal4 = document.getElementById("myModal4");
+var modal5 = document.getElementById("myModal5");
+var modal6 = document.getElementById("myModal6");
+var modal7 = document.getElementById("myModal7");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btnSplit = document.getElementById("btnSplitClicked");
+var Paybtn = document.getElementById("payButtonClicked");
+var TransactionPage = document.getElementById("TransactionClicked");
+var recieptClicked = document.getElementById("reciept");
+// When the user clicks on <span> (x), close the modal
+recieptClicked.onclick = function()
+{
+  modal5.style.display = "block";
+}
+TransactionPage.onclick = function()
+{
+  let x = document.getElementById('sidebar')
+  modal4.style.display = "block";
+  x.style.left = '-300px';
+}
+
+function MenubtnClicked()
+{
+  //document.getElementById("sidebar").style.left = "0px";
+  let x = document.getElementById('sidebar')
+  if (x.style.left === '-300px')
+  {
+    x.style.left = '0px';
+    console.log("clicked if");
+  }
+  else if (x.style.left === '0px')
+  {
+    x.style.left = '-300px';
+  }
+  else
+  {
+    x.style.left = '0px';
+    console.log("clicked else");
+  }
+}
+Paybtn.onclick = function()
+{
+
+  if (ItemSelectedToSend === false)
+  {
+    alert("Please select item first");
+  }
+  else{
+
+  SplitOderCLicked = false;
+  var splittedTotal = 0;
+  var splittedGST = 0;
+  var splittedGrandTotal = 0;
+  var disc = document.getElementById("discountAmount").innerHTML;
+  //console.log(disc);
+  modal2.style.display = "block";
+  for (var i = 0; i < cart.length; i++)
+  {
+    //console.log( cart[i]);
+    var Cartitems = item.find(item => item.id === cart[i]);
+    //console.log(Cartitems.name);
+    var tableCartScreen = document.getElementById("TransactionTablePayScreen");
+    var rowCartScreen = tableCartScreen.insertRow(1);
+    var cellCart1 = rowCartScreen.insertCell(0);
+    var cellCart2 = rowCartScreen.insertCell(1);
+    var cellCart3 = rowCartScreen.insertCell(2);
+    cellCart1.innerHTML = Cartitems.name;
+    cellCart2.innerHTML = "1";
+    cellCart3.innerHTML = Cartitems.price;
+    splittedTotal += parseFloat(Cartitems.price);
+    splittedGST += parseFloat(Cartitems.price) / 100 * 6;
+    splittedGrandTotal = splittedTotal + splittedGST - disc;
+    document.getElementById("subtotalAmountPayScreen").innerHTML = splittedTotal.toFixed(2);
+    document.getElementById("gstAmountPayScreen").innerHTML = splittedGST.toFixed(2);
+    document.getElementById("grandTotalAmountPayScreen").innerHTML = splittedGrandTotal.toFixed(2);
+    var AmountTopay = document.getElementById("grandTotalAmountPayScreen").innerHTML;
+    document.getElementById("TotalAmountToPay").innerHTML = AmountTopay;
+    document.getElementById("CashInput").value = AmountTopay;
+    var x = document.getElementById("TotalAmountToPay").innerHTML;
+    document.getElementById("paidAmount").innerHTML = x;
+    }
+    // var CopyTotalCart = document.getElementById("subtotalAmount").innerHTML;
+    // var CopyGstCart = document.getElementById("gstAmount").innerHTML;
+    // var CopyGrandTotalCart = document.getElementById("grandTotalAmount").innerHTML;
+    // document.getElementById("subtotalAmountPayScreen").innerHTML = CopyTotalCart; 
+    // document.getElementById("gstAmountPayScreen").innerHTML = CopyGstCart;
+    // document.getElementById("grandTotalAmountPayScreen").innerHTML = CopyGrandTotalCart;
+    // var p2 = document.getElementById("CopyDiv2").innerHTML;
+    // var p3 = document.getElementById("CopyDiv3").innerHTML;
+    // var p4 = document.getElementById("CalculationDIV").innerHTML;
+    var gTotal = document.getElementById("grandTotalAmount").innerHTML;
+    // document.getElementById("PasteDiv1").innerHTML= p1;
+    // document.getElementById("PasteDiv2").innerHTML= p2;
+    // document.getElementById("PasteDiv3").innerHTML= p3;
+    // document.getElementById("PasteCalculationDiv").innerHTML= p4;
+    document.getElementById("CashInput").value = gTotal;
+    document.getElementById("TotalAmountToPay").innerHTML = gTotal;
+    }
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var closeIcon = document.getElementsByClassName("close2")[0];
+var closeSplitWindow = document.getElementsByClassName("close3")[0];
+var SplitPayScreenClicked = document.getElementsByClassName("SplitPayScreen")[0];
+var CloseTransactionClicked = document.getElementsByClassName("CloseTransaction")[0];
+var closeReceiptClicked = document.getElementsByClassName("closeReceipt")[0];
+var closeKitchenMSGClicked = document.getElementsByClassName("closeKitchenMSG")[0];
+closeKitchenMSGClicked.onclick = function()
+{
+  modal6.style.display = "none";
+}
+closeReceiptClicked.onclick = function()
+{
+  modal5.style.display = "none";
+}
+// When the user clicks the button, open the modal 
+btn.onclick = function()
+{
+  modal.style.display = "block";
+}
+btnSplit.onclick = function()
+{
+  if (cart.length == 0)
+  {
+    alert("Please select item first");
+  }
+  else
+  {
+    modal3.style.display = "block";
+  }
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function()
+{
+  modal.style.display = "none";
+}
+// When the user clicks on <span> (x), close the modal
+closeIcon.onclick = function()
+{
+  modal2.style.display = "none";
+  SplitOderCLicked = false;
+  $("#TransactionTablePayScreen td").remove();
+}
+SplitPayScreenClicked.onclick = function()
+{
+  if (selected.length == 0)
+    {
+      alert ("Please add item to split");
+    }
+
+  else 
+    {
+
+      modal3.style.display = "none";
+      modal2.style.display = "block";
+      SplitOderCLicked = true;
+      var splittedTotal = 0.00;
+      var splittedGST = 0.00;
+      var splittedGrandTotal = 0.00;
+      for (var i = 0; i < selected.length; i++)
+      {
+        //var selectedData = cart.at(selected);
+        var itemID = (cart.at(selected[i]));
+        var items = item.find(item => item.id === itemID);
+        //console.log(items.name);
+        var tablePayScreen = document.getElementById("TransactionTablePayScreen");
+        var rowPayScreen = tablePayScreen.insertRow(1);
+        var cellPay1 = rowPayScreen.insertCell(0);
+        var cellPay2 = rowPayScreen.insertCell(1);
+        var cellPay3 = rowPayScreen.insertCell(2);
+        cellPay1.innerHTML = items.name;
+        cellPay2.innerHTML = "1";
+        cellPay3.innerHTML = items.price;
+        splittedTotal += parseFloat(items.price);
+        splittedGST += parseFloat(items.price) / 100 * 6;
+        splittedGrandTotal = splittedTotal + splittedGST;
+        document.getElementById("subtotalAmountPayScreen").innerHTML = splittedTotal.toFixed(2);
+        document.getElementById("gstAmountPayScreen").innerHTML = splittedGST.toFixed(2);
+        document.getElementById("grandTotalAmountPayScreen").innerHTML = splittedGrandTotal.toFixed(2);
+        var AmountTopay = document.getElementById("grandTotalAmountPayScreen").innerHTML;
+        document.getElementById("TotalAmountToPay").innerHTML = AmountTopay;
+        document.getElementById("CashInput").value = AmountTopay;
+      }
+    
+    }
+}
+CloseTransactionClicked.onclick = function()
+{
+  modal4.style.display = "none";
+}
+closeSplitWindow.onclick = function()
+{
+  modal3.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event)
+{
+  if (event.target == modal)
+  {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+
+
+<script>
+function exactBtnClicked()
+{
+  modal2.style.display="none";
+  playVid();
+  document.getElementById("PayRightSidePanel1").style.visibility = "hidden";
+  document.getElementById("PayRightSidePanel2").style.display = "block";
+  var x = document.getElementById("TotalAmountToPay").innerHTML;
+  document.getElementById("paidAmount").innerHTML = x;
+}
+
+</script>
+
+<script>
+function newOrderBtnClicked()
+{
+  selected.sort(function(a, b)
+  {
+    return b - a
+  });
+  if (SplitOderCLicked === true)
+  {
+    for (var i = 0; i < selected.length; i++)
+    {
+      cart.splice(selected[i], 1);
+    }
+    sumVal = 0.00;
+    var disAmount = 0.00;
+    $("#TransactionTable td").remove();
+    selected.length = 0;
+    //console.log(selected);
+    SplitTotal = 0.00;
+    SplitGST = 0.00;
+    SplitGrandTotal = 0.00;
+    splittedTotal = 0;
+    splittedGST = 0;
+    splittedGrandTotal = 0;
+    //console.log(SplitGrandTotal);
+    document.getElementById("SplitsubtotalAmount").innerHTML = SplitTotal.toFixed(2);
+    document.getElementById("SplitgstAmount").innerHTML = SplitGST.toFixed(2);
+    document.getElementById("SplitgrandTotalAmount").innerHTML = SplitGrandTotal.toFixed(2);
+    document.getElementById("selectedTable").innerHTML = '';
+    SelectedTablehtml2 = '';
+    for (var b = 0; b < cart.length; b++)
+    {
+      var Citems = item.find(item => item.id === cart[b]);
+      //console.log(Citems.name);
+      var table = document.getElementById("TransactionTable");
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = Citems.name;
+      cell2.innerHTML = "1";
+      cell3.innerHTML = Citems.price;
+      //console.log(Citems.name);
+      SelectedTablehtml2 += "<li class='list-group-item'>";
+      SelectedTablehtml2 += "<div style='display: flex;justify-content: space-between;align-items: center;'>";
+      SelectedTablehtml2 += " <input onclick='CheckBoxCliked(this)' data-array-index=" + (cart.length - 1) + " selected-item-price=" + Citems.price + "  selected-item-id=" + Citems.id + " class='SplitItemElementsDiv form-check-input me-1' type='checkbox' value='' aria-label='...'>";
+      SelectedTablehtml2 += "<img style='border-radius:16px' width='10%'' height='8%'' src=" + Citems.imgSource + ">";
+      SelectedTablehtml2 += " <p max-width='20px'>1</p>";
+      SelectedTablehtml2 += "<p class='short-name'>" + Citems.name + "</p>";
+      SelectedTablehtml2 += "<p>" + Citems.price + "</p>";
+      SelectedTablehtml2 += "<p>" + Citems.price + "</p>";
+      SelectedTablehtml2 += "</div>";
+      SelectedTablehtml2 += "</li>";
+      sumVal += parseFloat(Citems.price);
+      var gstperc = ((sumVal.toFixed(2) / 100) * 6);
+      document.getElementById("subtotalAmount").innerHTML = sumVal.toFixed(2);
+      document.getElementById("gstAmount").innerHTML = gstperc.toFixed(2);
+      document.getElementById("grandTotalAmount").innerHTML = (sumVal + gstperc + disAmount).toFixed(2);
+      document.getElementById("PayRightSidePanel1").style.visibility = "visible";
+      document.getElementById("PayRightSidePanel2").style.display = "none";
+    }
+    $("#TransactionTablePayScreen td").remove();
+    document.getElementById("selectedTable").innerHTML += SelectedTablehtml2;
+    modal2.style.display = "none";
+    // console.log(cart.length);
+    if (cart.length === 0)
+    {
+      location.reload();
+      OpenShift = true;
+    }
+  }
+  else
+  {
+    location.reload();
+    OpenShift = true;
+  }
+}
+
+  
+</script>
+
+
+<script>
+  $(".nav a").on("click", function() {
+  $(".nav").find(".active").removeClass("active");
+  $(this).parent().addClass("active");
+});
+</script>
+
+<!-- <script>
+const changeSelected = (e) =>
+{
+  const $select = document.querySelector('#categoryList');
+  $select.value = '3'
+};
+
+</script> -->
+
+<script>
+function sendBtnClicked()
+{
+  if (ItemSelectedToSend === false)
+  {
+    alert("Please select item first");
+  }
+  else
+  {
+    modal6.style.display = "block";
+    var tr = document.getElementById("TransactionTable");
+    //var tranTR = document.getElementById("TransactionTableTR");
+    for (i = 0; i < tr.rows.length; i++)
+    {
+      //tranTR.style.background="white";
+      tr.rows[i].style.background = "#F2D857";
+    }
+  }
+}
+
+</script>
+
+<script>
+var vid = document.getElementById("myVideo");
+
+function playVid()
+{
+  modal7.style.display = "block";
+  vid.play();
+}
+
+</script>
+
+
+<script>
+document.getElementById('myVideo').addEventListener('ended', myHandler, false);
+
+function myHandler(e)
+{
+  console.log("Video ended");
+  modal7.style.display = "none";
+  modal2.style.display="block";
+}
+
+</script>
